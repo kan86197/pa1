@@ -159,6 +159,7 @@ public class ConverterUI extends JFrame {
 						resultField.setText(Double.toString(result));
 
 					}catch(NumberFormatException e){
+						
 						System.out.println("Input is not a number");
 					}
 				}
@@ -191,10 +192,11 @@ public class ConverterUI extends JFrame {
 						double value = Double.valueOf(s);
 						double result = unitConverter.convert(value,(Unit) inputUnitBox.getSelectedItem(),(Unit) resultUnitBox.getSelectedItem());
 						//String resultString = String.format("%.2f", result);
+						inputField.setForeground(Color.BLACK);
 						resultField.setText(Double.toString(result));
 
 					}catch(NumberFormatException e){
-						System.out.println("Input is not a number");
+						inputField.setForeground(Color.RED);
 					}
 				}
 			}	else if( rightRadioButton.isSelected()){
@@ -204,10 +206,12 @@ public class ConverterUI extends JFrame {
 						double value = Double.valueOf(s);
 						double result = unitConverter.convert(value,(Unit) resultUnitBox.getSelectedItem(),(Unit) inputUnitBox.getSelectedItem());
 						//String resultString = String.format("%.2f", result);
+						inputField.setForeground(Color.BLACK);
 						inputField.setText(Double.toString(result));
 
 					}catch(NumberFormatException e){
-						System.out.println("Input is not a number");
+						//System.out.println("Input is not a number");
+						resultField.setForeground(Color.RED);
 					}
 				}
 			}
